@@ -5,13 +5,13 @@ import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 
-public class CourierCreate {
+public class CourierCreateTest {
     private final CourierClient client = new CourierClient();
     private final CourierApiAnswer check = new CourierApiAnswer();
     private int courierId;
 
     @Test
-    public void courierCreate() {
+    public void courierCreateTest() {
         var courier = CourierGenerator.random();
         ValidatableResponse response = client.create(courier);
         check.createdSuccessfully(response);
@@ -23,7 +23,7 @@ public class CourierCreate {
 
     @Test
     @DisplayName("Создание курьера")
-    public void courierNotCreation(){
+    public void courierNotCreationTest(){
         var courier = CourierGenerator.random();
         ValidatableResponse response = client.create(courier);
         check.createdSuccessfully(response);

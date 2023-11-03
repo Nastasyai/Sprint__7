@@ -1,14 +1,13 @@
 package order;
 
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class ParametrizationCreateOrder {
+public class ParametrizationCreateOrderTest {
     private String firstName;
     private String lastName;
     private String address;
@@ -23,7 +22,7 @@ public class ParametrizationCreateOrder {
     private static final String[] BLACK_AND_GRAY = {"BLACK", "GRAY"};
     private static final String[] UNDEFINED_COLOUR = {};
 
-    public ParametrizationCreateOrder(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, String[] colour) {
+    public ParametrizationCreateOrderTest(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, String[] colour) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -50,7 +49,7 @@ public class ParametrizationCreateOrder {
     OrderResponse orderResponse;
 
     @Test
-    //@DisplayName("Параметризованный тест для создания заказа")
+    @DisplayName("Параметризованный тест для создания заказа")
     public void ParametrizationCreateOrderTest() {
         var order = new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, colour);
         ValidatableResponse response = client.createOrder(order);
