@@ -8,14 +8,14 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CourierLogin {
+public class CourierLoginTest {
     private final CourierClient client = new CourierClient();
     private final CourierApiAnswer check = new CourierApiAnswer();
     private int courierId;
 
     @Test
     @DisplayName("Успешная авторизация курьера")
-    public void courierLogin() {
+    public void courierLoginTest() {
         var courier = CourierGenerator.random();
         ValidatableResponse response = client.create(courier);
         check.createdSuccessfully(response);
@@ -27,7 +27,7 @@ public class CourierLogin {
 
     @Test
     @DisplayName("Некорректный логин курьера")
-    public void courierLoginLogin404() {
+    public void courierLoginLogin404Test() {
         var courier = CourierGenerator.random();
         ValidatableResponse response = client.create(courier);
         check.createdSuccessfully(response);
@@ -43,7 +43,7 @@ public class CourierLogin {
 
     @Test
     @DisplayName("Некорректный пароль курьера")
-    public void courierLoginPassword404() {
+    public void courierLoginPassword404Test() {
         var courier = CourierGenerator.random();
         ValidatableResponse response = client.create(courier);
         check.createdSuccessfully(response);

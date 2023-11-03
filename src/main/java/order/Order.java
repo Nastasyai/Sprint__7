@@ -8,12 +8,6 @@ import static io.restassured.RestAssured.given;
 public class Order {
     public static final String BASE_URL = "http://qa-scooter.praktikum-services.ru";
 
-    public RequestSpecification getRequestSpecification () {
-        return given().log().all()
-                .contentType(ContentType.JSON)
-                .baseUri(BASE_URL);
-    }
-
     private String firstName;
     private String lastName;
     private String address;
